@@ -132,6 +132,27 @@ main>section:not(.hero){position:relative;z-index:1}
 .g-item.left{margin-right:auto}.g-item.right{margin-left:auto}
 .g-item img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:18px;border:1px solid var(--gold);padding:6px;background:var(--ivory)}
 
+/* rsvp */
+.rsvp-section{background:var(--ivory);padding:4.5rem 1.6rem}
+.rsvp-section .quote{margin-top:.6rem}
+.rsvp-form{margin-top:2rem;text-align:left}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.field{display:block;margin-top:1.4rem}
+.field span,.choice legend{display:block;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:#9a6a80;margin-bottom:.4rem}
+.field input,.field select,.field textarea{width:100%;font-family:var(--serif);font-size:1.2rem;color:var(--dark-text);background:transparent;border:0;border-bottom:1px solid var(--gold);padding:.45rem 0;border-radius:0;outline:0;resize:none}
+.field input:focus,.field select:focus,.field textarea:focus{border-bottom-width:2px}
+.choice{border:0;margin-top:1.6rem}
+.choice label{display:block;margin-top:.5rem;cursor:pointer}
+.choice input{position:absolute;opacity:0}
+.choice span{display:block;text-align:center;font-family:var(--serif);font-size:1.15rem;color:var(--dark-text);border:1px solid var(--gold);border-radius:40px;padding:.7rem 1rem;transition:background .3s,color .3s}
+.choice input:checked+span{background:var(--emerald);color:var(--ivory)}
+.choice input:focus-visible+span{outline:2px solid var(--gold);outline-offset:3px}
+#guestsField[hidden]{display:none}
+.rsvp-msg{min-height:1.4rem;margin-top:1.2rem;text-align:center;font-family:var(--serif);font-size:1.1rem;color:#8a2f4a}
+.rsvp-msg.ok{color:var(--emerald)}
+.rsvp-form .btn{display:block;margin:.6rem auto 0}
+.rsvp-form .btn:disabled{opacity:.6;cursor:default}
+
 /* closing */
 .closing-section{padding:5rem 1.6rem 4.5rem}
 .closing-section .names{margin:1.4rem 0 1rem;font-size:2.6rem}

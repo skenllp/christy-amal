@@ -13,7 +13,9 @@ const weddingData = {
     venue: "",
     location: "",
     mapUrl: "https://maps.app.goo.gl/hqQQxFSBAFMwKXae8?g_st=ic"
-  }
+  },
+  // Paste your Google Apps Script Web App URL here (see rsvp-apps-script.gs)
+  rsvpEndpoint: "https://script.google.com/macros/s/AKfycbyn9KHTsIOn3_vD2QCiyZGFW5VsX67K82oDwwYM8OlEENVKoGehzRqfsXvFS1chzJv6/exec"
 };
 /* ==================================== */
 
@@ -151,3 +153,26 @@ if (validDate) {
     a.download = "wedding.ics"; a.click();
   });
 }
+
+/* RSVP -> Google Sheet (via Apps Script web app) */
+const form = $("#rsvpForm"), msg = $("#rsvpMsg"), rsvpBtn = $("#rsvpBtn"), guestsField = $("#guestsField");
+form.addEventListener("change", () => { guestsField.hidden = form.attending.value === "No"; });
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  msg.className = "rsvp-msg";
+  const name = form.name.value.trim();
+  if (!name) { msg.textContent = "Please enter your name."; form.name.focus(); return; }
+  if (!weddingData.rsvpEndpoint) { msg.textContent = "RSVP is not available right now. Please contact the family."; return; }
+  rsvpBtn.disabled = true; rsvpBtn.textContent = "Sending...";
+  const attending = form.attending.value;
+  const payload = { name, attending, guests: attending === "Yes" ? +form.guests.value : 0, message: form.message.value.trim(), website: form.website.value };
+  try {
+    await fetch(weddingData.rsvpEndpoint, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(payload) });
+    msg.classList.add("ok");
+    msg.textContent = attending === "Yes" ? "Thank you! We can't wait to celebrate with you." : "Thank you for letting us know. You will be missed.";
+    form.reset(); guestsField.hidden = false; rsvpBtn.textContent = "RSVP sent";
+  } catch (err) {
+    msg.textContent = "Could not send. Check your connection and try again.";
+    rsvpBtn.disabled = false; rsvpBtn.textContent = "Send RSVP";
+  }
+});

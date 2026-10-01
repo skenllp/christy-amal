@@ -5,10 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Amal &amp; Christy | Wedding Invitation</title>
 <meta name="description" content="Together with their families, Amal and Christy invite you to celebrate their wedding.">
+<link rel="canonical" href="https://amal-christy.vercel.app/">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://amal-christy.vercel.app/">
+<meta property="og:site_name" content="Amal &amp; Christy">
 <meta property="og:title" content="Amal &amp; Christy | Wedding Invitation">
 <meta property="og:description" content="Together with their families, Amal and Christy invite you to celebrate their wedding.">
-<meta property="og:image" content="assets/hero-couple.png">
+<meta property="og:image" content="https://amal-christy.vercel.app/assets/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The wedding of Amal and Christy">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://amal-christy.vercel.app/assets/og-image.jpg">
 <meta name="theme-color" content="#082D22">
 <link rel="preload" as="image" href="assets/ornamental-bg.png">
 <link rel="preload" as="image" href="assets/hero-bg.jpg">
@@ -123,6 +132,26 @@
   <figure class="g-item left reveal-left"><img src="assets/gallery-1.jpg" alt="Amal and Christy standing arm in arm" loading="lazy"></figure>
   <figure class="g-item right reveal-right"><img src="assets/gallery-2.jpg" alt="Amal and Christy sitting together" loading="lazy"></figure>
   <figure class="g-item left reveal-left"><img src="assets/gallery-3.jpg" alt="Amal and Christy smiling together outdoors" loading="lazy"></figure>
+</section>
+
+<section class="rsvp-section">
+  <p class="small-caps tag reveal"><i></i>Kindly Respond<i></i></p>
+  <h2 class="quote reveal">Will you join us?</h2>
+  <p class="sub reveal">Let us know if you can make it, so we can save a place for you.</p>
+  <form id="rsvpForm" class="rsvp-form reveal" novalidate>
+    <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <label class="field"><span>Your name</span><input type="text" name="name" maxlength="100" autocomplete="name" required></label>
+    <fieldset class="choice">
+      <legend>Will you attend?</legend>
+      <label><input type="radio" name="attending" value="Yes" checked><span>Joyfully accept</span></label>
+      <label><input type="radio" name="attending" value="No"><span>Regretfully decline</span></label>
+    </fieldset>
+    <label class="field" id="guestsField"><span>Number of guests (including you)</span>
+      <select name="guests"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></label>
+    <label class="field"><span>A message for the couple (optional)</span><textarea name="message" rows="3" maxlength="500"></textarea></label>
+    <p id="rsvpMsg" class="rsvp-msg" role="status" aria-live="polite"></p>
+    <button type="submit" id="rsvpBtn" class="btn">Send RSVP</button>
+  </form>
 </section>
 
 <section class="closing-section">
