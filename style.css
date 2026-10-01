@@ -131,6 +131,9 @@ main>section:not(.hero){position:relative;z-index:1}
 .ic{flex:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--gold);background:var(--chocolate);color:var(--gold);display:grid;place-items:center;font-size:.95rem}
 .dark-btn{display:block;width:100%;margin-top:1.4rem;border-radius:12px;background:var(--burnt-orange);border-color:var(--gold)}
 .dark-btn:hover{background:var(--deep-orange)}
+a.dark-btn{text-align:center}
+.cal-btn{margin-top:.8rem;background:transparent}
+.cal-btn:hover{background:var(--chocolate)}
 
 /* church / venue */
 .church-section{padding:4.5rem 1.4rem 4rem}

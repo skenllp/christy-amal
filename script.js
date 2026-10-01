@@ -13,7 +13,8 @@ const weddingData = {
     time: "6:00 PM",      // e.g. "10:30 AM"  (24h "10:30" also works for the countdown)
     venue: "",            // add the venue name here (row stays hidden while empty)
     location: "",         // add town / district here (row stays hidden while empty)
-    mapUrl: "https://share.google/T6d8w9aMnExyYZ4HW"
+    mapUrl: "https://share.google/T6d8w9aMnExyYZ4HW",   // church location
+    receptionUrl: "https://maps.app.goo.gl/hqQQxFSBAFMwKXae8?g_st=ic"   // reception location
   },
   // Paste your Google Apps Script Web App URL here (see rsvp-apps-script.gs)
   rsvpEndpoint: "https://script.google.com/macros/s/AKfycbyn9KHTsIOn3_vD2QCiyZGFW5VsX67K82oDwwYM8OlEENVKoGehzRqfsXvFS1chzJv6/exec"
@@ -103,6 +104,7 @@ if (validDate) { cd.hidden = false; soon.hidden = true; tick(); setInterval(tick
 
 /* Map button: a real link (works in WhatsApp in-app browsers); URL stays editable above */
 $("#mapBtn").href = w.mapUrl;
+$("#receptionBtn").href = w.receptionUrl;
 
 /* Scroll reveals */
 const io = new IntersectionObserver(es => es.forEach(e => {
