@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Amal &amp; Christy | Wedding Invitation</title>
+<meta name="description" content="Together with their families, Amal and Christy invite you to celebrate their wedding.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Amal &amp; Christy | Wedding Invitation">
+<meta property="og:description" content="Together with their families, Amal and Christy invite you to celebrate their wedding.">
+<meta property="og:image" content="assets/hero-couple.png">
+<meta name="theme-color" content="#082D22">
+<link rel="preload" as="image" href="assets/ornamental-bg.png">
+<link rel="preload" as="image" href="assets/hero-bg.jpg">
+<link rel="preload" as="image" href="assets/hero-couple-cutout.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+
+<div id="loader" aria-label="Loading"><div class="loader-mark">A &amp; C</div><span class="loader-line"></span></div>
+
+<div class="invitation-wrapper">
+
+<section id="opening" aria-label="Invitation cover">
+  <div class="half hl"><div class="hbg"></div></div>
+  <div class="half hr"><div class="hbg"></div></div>
+  <div class="vline"></div>
+  <div class="opening-content">
+    <p class="small-caps wi"><i></i>Wedding Invitation<i></i></p>
+    <h1 class="open-names">Amal <span class="script">&amp;</span> Christy</h1>
+    <button id="openBtn" class="seal" aria-label="Open the invitation"><span>A&amp;C</span></button>
+    <p class="small-caps tap">Tap the seal to open</p>
+  </div>
+</section>
+
+<main id="invitation">
+
+<section class="hero">
+  <img class="hero-img" src="assets/hero-bg.jpg" alt="" fetchpriority="high">
+  <div class="hero-text">
+    <h2 class="names hero-b">Amal</h2>
+    <span class="script hero-c">and</span>
+    <h2 class="names hero-d">Christy</h2>
+    <p class="small-caps hero-e"><span data-wedding="dateText">Wedding Date</span></p>
+    <p class="small-caps hero-e"><span data-wedding="location">Location</span></p>
+  </div>
+  <div class="couple-layer"><img class="hero-img" src="assets/hero-couple-cutout.png" alt="Amal and Christy embracing under marigold garlands" fetchpriority="high"></div>
+</section>
+
+<section class="intro">
+  <p class="small-caps tag reveal"><i></i>The Couple<i></i></p>
+  <p class="quote reveal">Two hearts, one promise</p>
+  <p class="sub reveal">With joyful hearts, we invite you to celebrate the beginning of our forever.</p>
+  <div class="person-card groom-section reveal">
+    <div class="frame"><img src="assets/groom.png" alt="Portrait of Amal, the groom" loading="lazy"></div>
+    <p class="small-caps">The Groom</p>
+    <h2 class="names dark">Amal</h2>
+    <p class="sub">Son of <span data-bind="groomParents"></span></p>
+  </div>
+  <span class="amp">&amp;</span>
+  <div class="person-card bride-section reveal">
+    <div class="frame"><img src="assets/bride.png" alt="Portrait of Christy, the bride" loading="lazy"></div>
+    <p class="small-caps">The Bride</p>
+    <h2 class="names dark">Christy</h2>
+    <p class="sub">Daughter of <span data-bind="brideParents"></span></p>
+    <p class="sub">Brother: <span data-bind="brideBrother"></span></p>
+  </div>
+</section>
+
+<section class="family-section">
+  <h3 class="small-caps reveal">Groom's Family</h3>
+  <p class="label reveal">Parents</p><p class="body-serif reveal" data-bind="groomParents"></p>
+  <p class="label reveal">Sister</p><p class="body-serif reveal" data-bind="groomSister"></p>
+  <p class="label reveal">Brother-in-law</p><p class="body-serif reveal" data-bind="groomBrotherInLaw"></p>
+  <span class="orn"></span>
+  <h3 class="small-caps reveal">Bride's Family</h3>
+  <p class="label reveal">Parents</p><p class="body-serif reveal" data-bind="brideParents"></p>
+  <p class="label reveal">Brother</p><p class="body-serif reveal" data-bind="brideBrother"></p>
+</section>
+
+<section class="countdown-section">
+  <div class="mandala"></div>
+  <p class="small-caps tag reveal"><i></i>Counting Down<i></i></p>
+  <h3 class="quote light reveal">Until we say <em>&ldquo;I do&rdquo;</em></h3>
+  <div id="countdown" class="count-grid reveal" hidden>
+    <div><b id="cd-d">00</b><span>Days</span></div><div><b id="cd-h">00</b><span>Hours</span></div>
+    <div><b id="cd-m">00</b><span>Mins</span></div><div><b id="cd-s">00</b><span>Secs</span></div>
+  </div>
+  <p class="small-caps cd-date" data-wedding="dateText"></p>
+  <p id="soon" class="script soon reveal">Our special day is coming soon.</p>
+</section>
+
+<section class="event-section">
+  <p class="small-caps tag reveal"><i></i>When &amp; Where<i></i></p>
+  <h2 class="quote reveal">The celebration</h2>
+  <div class="event-card reveal">
+    <div class="save"><p class="small-caps">Save the date</p><p class="big-date" data-wedding="dateBig">To be announced</p></div>
+    <div class="event-rows">
+      <div class="event-row"><span class="ic">&#10022;</span><div><p class="label">The ceremony</p><p class="body-serif">Marriage</p></div></div>
+      <div class="event-row"><span class="ic">&#9719;</span><div><p class="label">Time</p><p class="body-serif" data-wedding="time">&mdash;</p></div></div>
+      <div class="event-row"><span class="ic">&#9750;</span><div><p class="label">Venue</p><p class="body-serif" data-wedding="venue">&mdash;</p></div></div>
+      <div class="event-row"><span class="ic">&#9678;</span><div><p class="label">Location</p><p class="body-serif" data-wedding="location">&mdash;</p></div></div>
+      <button id="calBtn" class="btn dark-btn" hidden>Add to calendar</button>
+    </div>
+  </div>
+</section>
+
+<section class="map-section">
+  <img class="map-img reveal-scale" src="assets/venue-map.png" alt="Illustrated map showing the wedding venue" loading="lazy">
+  <div class="map-card reveal">
+    <p class="body-serif" data-wedding="venue">Wedding venue</p>
+    <p class="sub" data-wedding="location"></p>
+    <button id="mapBtn" class="btn">View Location</button>
+  </div>
+</section>
+
+<section class="gallery-section">
+  <h2 class="names dark reveal">Our Journey</h2>
+  <span class="gold-line reveal"></span>
+  <figure class="g-item left reveal-left"><img src="assets/gallery-1.jpg" alt="Amal and Christy standing arm in arm" loading="lazy"></figure>
+  <figure class="g-item right reveal-right"><img src="assets/gallery-2.jpg" alt="Amal and Christy sitting together" loading="lazy"></figure>
+  <figure class="g-item left reveal-left"><img src="assets/gallery-3.jpg" alt="Amal and Christy smiling together outdoors" loading="lazy"></figure>
+</section>
+
+<section class="closing-section">
+  <div class="mandala"></div>
+  <p class="small-caps tag reveal"><i></i>With Love<i></i></p>
+  <p class="quote light gold reveal">Come bless our beginning</p>
+  <p class="sub light reveal">With love, we invite you to celebrate our beginning. Together with our families, we look forward to celebrating with you.</p>
+  <span class="gold-line reveal"></span>
+  <h2 class="names reveal">Amal <span class="script">&amp;</span> Christy</h2>
+  <p class="small-caps reveal" data-wedding="dateText"></p>
+  <p class="small-caps reveal">Together with our families</p>
+  <span class="orn big"></span>
+</section>
+
+</main>
+</div>
+
+<div id="progress"></div>
+<div id="petals" aria-hidden="true"></div>
+<audio id="bgMusic" loop preload="none"><source src="assets/music.mp3" type="audio/mpeg"></audio>
+<button id="musicToggle" aria-label="Play or pause music">&#9834;</button>
+
+<script src="script.js"></script>
+</body>
+</html>
