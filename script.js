@@ -13,7 +13,7 @@ const weddingData = {
     time: "6:00 PM",      // e.g. "10:30 AM"  (24h "10:30" also works for the countdown)
     venue: "",            // add the venue name here (row stays hidden while empty)
     location: "",         // add town / district here (row stays hidden while empty)
-    mapUrl: "https://maps.app.goo.gl/hqQQxFSBAFMwKXae8?g_st=ic"
+    mapUrl: "https://share.google/T6d8w9aMnExyYZ4HW"
   },
   // Paste your Google Apps Script Web App URL here (see rsvp-apps-script.gs)
   rsvpEndpoint: "https://script.google.com/macros/s/AKfycbyn9KHTsIOn3_vD2QCiyZGFW5VsX67K82oDwwYM8OlEENVKoGehzRqfsXvFS1chzJv6/exec"
@@ -59,7 +59,7 @@ function hideLoader() {
   loader.classList.add("hide");
   setTimeout(() => loader.remove(), 700);
 }
-Promise.all(["assets/ornamental-bg.png", "assets/hero-bg.jpg", "assets/hero-couple-cutout.png"].map(src =>
+Promise.all(["assets/opening-bg.jpg", "assets/hero-art.jpg"].map(src =>
   new Promise(res => { const i = new Image(); i.onload = i.onerror = res; i.src = src; })
 )).then(() => setTimeout(hideLoader, 600));
 setTimeout(hideLoader, 4000);
@@ -74,7 +74,7 @@ musicBtn.addEventListener("click", () => {
   else { music.pause(); setPlaying(false); }
 });
 
-/* Opening: seam splits, blush reveal, hero fades in */
+/* Opening: seam splits, reveal, hero fades in */
 const opening = $("#opening");
 $("#openBtn").addEventListener("click", () => {
   opening.classList.add("go");
@@ -101,8 +101,8 @@ function tick() {
 }
 if (validDate) { cd.hidden = false; soon.hidden = true; tick(); setInterval(tick, 1000); }
 
-/* Map button */
-$("#mapBtn").addEventListener("click", () => window.open(w.mapUrl, "_blank", "noopener"));
+/* Map button: a real link (works in WhatsApp in-app browsers); URL stays editable above */
+$("#mapBtn").href = w.mapUrl;
 
 /* Scroll reveals */
 const io = new IntersectionObserver(es => es.forEach(e => {
@@ -110,25 +110,12 @@ const io = new IntersectionObserver(es => es.forEach(e => {
 }), { threshold: 0.15 });
 $$(".reveal,.reveal-left,.reveal-right,.reveal-scale").forEach(el => io.observe(el));
 
-/* Hero: couple layer rises over the names while scrolling */
-const coupleLayer = $(".couple-layer");
-if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  let busy = false;
-  addEventListener("scroll", () => {
-    if (busy || scrollY > innerHeight * 1.2) return; busy = true;
-    requestAnimationFrame(() => {
-      coupleLayer.style.transform = `translate3d(0,${-Math.min(scrollY, innerHeight) * 0.55}px,0)`;
-      busy = false;
-    });
-  }, { passive: true });
-}
-
 /* Petals */
 (function () {
-  const box = $("#petals"), kinds = ["p-ivory", "p-blush", "p-ivory", "p-gold"];
-  for (let i = 0; i < 8; i++) {
+  const box = $("#petals"), kinds = ["p-orange", "p-beige", "p-gold"];
+  for (let i = 0; i < 6; i++) {
     const p = document.createElement("div");
-    p.className = "petal " + kinds[i % 4];
+    p.className = "petal " + kinds[i % 3];
     p.style.left = Math.random() * 100 + "%";
     p.style.animationDuration = 14 + Math.random() * 10 + "s";
     p.style.animationDelay = -Math.random() * 20 + "s";

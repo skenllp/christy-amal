@@ -18,10 +18,9 @@
 <meta property="og:image:alt" content="The wedding of Amal and Christy">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://amal-christy.vercel.app/assets/og-image.jpg">
-<meta name="theme-color" content="#082D22">
-<link rel="preload" as="image" href="assets/ornamental-bg.png">
-<link rel="preload" as="image" href="assets/hero-bg.jpg">
-<link rel="preload" as="image" href="assets/hero-couple-cutout.png">
+<meta name="theme-color" content="#3A241C">
+<link rel="preload" as="image" href="assets/opening-bg.jpg">
+<link rel="preload" as="image" href="assets/hero-art.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
@@ -38,9 +37,9 @@
   <div class="half hr"><div class="hbg"></div></div>
   <div class="vline"></div>
   <div class="opening-content">
-    <p class="small-caps wi"><i></i>Wedding Invitation<i></i></p>
+    <p class="small-caps wi"><i></i>The Wedding Of<i></i></p>
     <h1 class="open-names">Amal <span class="script">&amp;</span> Christy</h1>
-    <button id="openBtn" class="seal" aria-label="Open the invitation"><span>A&amp;C</span></button>
+    <button id="openBtn" class="seal" aria-label="Open the invitation"><span>Open</span></button>
     <p class="small-caps tap">Tap the seal to open</p>
   </div>
 </section>
@@ -48,15 +47,17 @@
 <main id="invitation">
 
 <section class="hero">
-  <img class="hero-img" src="assets/hero-bg.jpg" alt="" fetchpriority="high">
+  <img class="hero-img" src="assets/hero-art.jpg" alt="Amal and Christy embracing beneath marigold garlands" fetchpriority="high">
   <div class="hero-text">
+    <p class="small-caps hero-a">With the blessings of our families</p>
     <h2 class="names hero-b">Amal</h2>
     <span class="script hero-c">and</span>
     <h2 class="names hero-d">Christy</h2>
+  </div>
+  <div class="hero-foot">
     <p class="small-caps hero-e"><span data-wedding="dateText">Wedding Date</span></p>
     <p class="small-caps hero-e"><span data-wedding="location" data-empty="hide">Location</span></p>
   </div>
-  <div class="couple-layer"><img class="hero-img" src="assets/hero-couple-cutout.png" alt="Amal and Christy embracing under marigold garlands" fetchpriority="high"></div>
 </section>
 
 <section class="intro">
@@ -64,14 +65,14 @@
   <p class="quote reveal">Two hearts, one promise</p>
   <p class="sub reveal">With joyful hearts, we invite you to celebrate the beginning of our forever.</p>
   <div class="person-card groom-section reveal">
-    <div class="frame"><img src="assets/groom.png" alt="Portrait of Amal, the groom" loading="lazy"></div>
+    <div class="frame"><img src="assets/amal.jpg" alt="Portrait of Amal, the groom" width="413" height="531" loading="lazy"></div>
     <p class="small-caps">The Groom</p>
     <h2 class="names dark">Amal</h2>
     <p class="sub">Son of <span data-bind="groomParents"></span></p>
   </div>
   <span class="amp">&amp;</span>
   <div class="person-card bride-section reveal">
-    <div class="frame"><img src="assets/bride.png" alt="Portrait of Christy, the bride" loading="lazy"></div>
+    <div class="frame"><img class="christy" src="assets/christy.jpg" alt="Portrait of Christy, the bride" width="698" height="1000" loading="lazy"></div>
     <p class="small-caps">The Bride</p>
     <h2 class="names dark">Christy</h2>
     <p class="sub">Daughter of <span data-bind="brideParents"></span></p>
@@ -91,9 +92,8 @@
 </section>
 
 <section class="countdown-section">
-  <div class="mandala"></div>
   <p class="small-caps tag reveal"><i></i>Counting Down<i></i></p>
-  <h3 class="quote light reveal">Until we <em>celebrate</em> together</h3>
+  <h3 class="quote light until reveal">Until we say &ldquo;I do&rdquo;</h3>
   <div id="countdown" class="count-grid reveal" hidden>
     <div><b id="cd-d">00</b><span>Days</span></div><div><b id="cd-h">00</b><span>Hours</span></div>
     <div><b id="cd-m">00</b><span>Mins</span></div><div><b id="cd-s">00</b><span>Secs</span></div>
@@ -117,21 +117,23 @@
   </div>
 </section>
 
-<section class="map-section">
-  <img class="map-img reveal-scale" src="assets/venue-map.png" alt="Illustrated map showing the wedding venue" loading="lazy">
-  <div class="map-card reveal">
-    <p class="body-serif" data-wedding="venue">Wedding venue</p>
-    <p class="sub" data-wedding="location"></p>
-    <button id="mapBtn" class="btn">View Location</button>
+<section class="church-section">
+  <p class="small-caps tag reveal"><i></i>The Sacred Venue<i></i></p>
+  <figure class="church-fig reveal-scale">
+    <img src="assets/church.jpg" alt="Illustration of the wedding church at golden hour" width="1000" height="1331" loading="lazy">
+  </figure>
+  <div class="church-info reveal">
+    <p class="small-caps">Church / Venue</p>
+    <p class="body-serif" data-wedding="venue" data-empty="hide"></p>
+    <p class="sub" data-wedding="location" data-empty="hide"></p>
+    <a id="mapBtn" class="btn" href="https://share.google/T6d8w9aMnExyYZ4HW" target="_blank" rel="noopener noreferrer">View Location</a>
   </div>
 </section>
 
 <section class="gallery-section">
   <h2 class="names dark reveal">Our Journey</h2>
   <span class="gold-line reveal"></span>
-  <figure class="g-item left reveal-left"><img src="assets/gallery-1.jpg" alt="Amal and Christy standing arm in arm" loading="lazy"></figure>
-  <figure class="g-item right reveal-right"><img src="assets/gallery-2.jpg" alt="Amal and Christy sitting together" loading="lazy"></figure>
-  <figure class="g-item left reveal-left"><img src="assets/gallery-3.jpg" alt="Amal and Christy smiling together outdoors" loading="lazy"></figure>
+  <figure class="g-item reveal"><img src="assets/gallery-3.jpg" alt="Amal and Christy smiling together outdoors" loading="lazy"></figure>
 </section>
 
 <section class="rsvp-section">
@@ -157,8 +159,7 @@
 <section class="closing-section">
   <div class="mandala"></div>
   <p class="small-caps tag reveal"><i></i>With Love<i></i></p>
-  <p class="quote light gold reveal">Come bless our beginning</p>
-  <p class="sub light reveal">With love, we invite you to celebrate our beginning. Together with our families, we look forward to celebrating with you.</p>
+  <p class="quote light gold reveal">With love, we invite you to celebrate our beginning.</p>
   <span class="gold-line reveal"></span>
   <h2 class="names reveal">Amal <span class="script">&amp;</span> Christy</h2>
   <p class="small-caps reveal" data-wedding="dateText"></p>
