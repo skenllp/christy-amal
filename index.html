@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Amal &amp; Christy | Wedding Invitation</title>
-<meta name="description" content="Together with their families, Amal and Christy invite you to celebrate their wedding.">
+<meta name="description" content="Together with their families, Amal and Christy invite you to their wedding reception on 4 January 2027 at 6:00 PM.">
 <link rel="canonical" href="https://amal-christy.vercel.app/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://amal-christy.vercel.app/">
 <meta property="og:site_name" content="Amal &amp; Christy">
 <meta property="og:title" content="Amal &amp; Christy | Wedding Invitation">
-<meta property="og:description" content="Together with their families, Amal and Christy invite you to celebrate their wedding.">
+<meta property="og:description" content="Together with their families, Amal and Christy invite you to their wedding reception on 4 January 2027 at 6:00 PM.">
 <meta property="og:image" content="https://amal-christy.vercel.app/assets/og-image.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
@@ -54,7 +54,7 @@
     <span class="script hero-c">and</span>
     <h2 class="names hero-d">Christy</h2>
     <p class="small-caps hero-e"><span data-wedding="dateText">Wedding Date</span></p>
-    <p class="small-caps hero-e"><span data-wedding="location">Location</span></p>
+    <p class="small-caps hero-e"><span data-wedding="location" data-empty="hide">Location</span></p>
   </div>
   <div class="couple-layer"><img class="hero-img" src="assets/hero-couple-cutout.png" alt="Amal and Christy embracing under marigold garlands" fetchpriority="high"></div>
 </section>
@@ -93,7 +93,7 @@
 <section class="countdown-section">
   <div class="mandala"></div>
   <p class="small-caps tag reveal"><i></i>Counting Down<i></i></p>
-  <h3 class="quote light reveal">Until we say <em>&ldquo;I do&rdquo;</em></h3>
+  <h3 class="quote light reveal">Until we <em>celebrate</em> together</h3>
   <div id="countdown" class="count-grid reveal" hidden>
     <div><b id="cd-d">00</b><span>Days</span></div><div><b id="cd-h">00</b><span>Hours</span></div>
     <div><b id="cd-m">00</b><span>Mins</span></div><div><b id="cd-s">00</b><span>Secs</span></div>
@@ -108,10 +108,10 @@
   <div class="event-card reveal">
     <div class="save"><p class="small-caps">Save the date</p><p class="big-date" data-wedding="dateBig">To be announced</p></div>
     <div class="event-rows">
-      <div class="event-row"><span class="ic">&#10022;</span><div><p class="label">The ceremony</p><p class="body-serif">Marriage</p></div></div>
+      <div class="event-row"><span class="ic">&#10022;</span><div><p class="label">The event</p><p class="body-serif" data-wedding="event">Reception</p></div></div>
       <div class="event-row"><span class="ic">&#9719;</span><div><p class="label">Time</p><p class="body-serif" data-wedding="time">&mdash;</p></div></div>
-      <div class="event-row"><span class="ic">&#9750;</span><div><p class="label">Venue</p><p class="body-serif" data-wedding="venue">&mdash;</p></div></div>
-      <div class="event-row"><span class="ic">&#9678;</span><div><p class="label">Location</p><p class="body-serif" data-wedding="location">&mdash;</p></div></div>
+      <div class="event-row"><span class="ic">&#9750;</span><div><p class="label">Venue</p><p class="body-serif" data-wedding="venue" data-empty="hide">&mdash;</p></div></div>
+      <div class="event-row"><span class="ic">&#9678;</span><div><p class="label">Location</p><p class="body-serif" data-wedding="location" data-empty="hide">&mdash;</p></div></div>
       <button id="calBtn" class="btn dark-btn" hidden>Add to calendar</button>
     </div>
   </div>

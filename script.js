@@ -8,10 +8,11 @@ const weddingData = {
   groomSister: "Anitta",
   groomBrotherInLaw: "Jesbin",
   wedding: {
-    date: "",      // format: "2027-01-15"  (YYYY-MM-DD)
-    time: "",      // e.g. "10:30 AM"  (24h "10:30" also works for the countdown)
-    venue: "",
-    location: "",
+    event: "Reception",
+    date: "2027-01-04",   // format: "2027-01-15"  (YYYY-MM-DD)
+    time: "6:00 PM",      // e.g. "10:30 AM"  (24h "10:30" also works for the countdown)
+    venue: "",            // add the venue name here (row stays hidden while empty)
+    location: "",         // add town / district here (row stays hidden while empty)
     mapUrl: "https://maps.app.goo.gl/hqQQxFSBAFMwKXae8?g_st=ic"
   },
   // Paste your Google Apps Script Web App URL here (see rsvp-apps-script.gs)
@@ -32,20 +33,22 @@ function to24(t) {
   if (ap === "am" && h === 12) h = 0;
   return String(h).padStart(2, "0") + ":" + min;
 }
-const target = w.date ? new Date(`${w.date}T${to24(w.time)}:00`) : null;
+/* All times are India Standard Time, so the countdown is the same for every guest */
+const target = w.date ? new Date(`${w.date}T${to24(w.time)}:00+05:30`) : null;
 const validDate = target && !isNaN(target);
 
 /* Populate text */
 $$("[data-bind]").forEach(el => { el.textContent = weddingData[el.dataset.bind] || ""; });
 const bigDate = validDate
-  ? target.toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" }).toUpperCase() : "";
+  ? target.toLocaleDateString("en-IN", { timeZone: "Asia/Kolkata", day: "numeric", month: "long", year: "numeric" }).toUpperCase() : "";
 const dateText = validDate
-  ? target.toLocaleDateString("en-IN", { weekday: "long", day: "numeric", month: "long", year: "numeric" })
+  ? target.toLocaleDateString("en-IN", { timeZone: "Asia/Kolkata", weekday: "long", day: "numeric", month: "long", year: "numeric" })
   : "";
 $$("[data-wedding]").forEach(el => {
   const k = el.dataset.wedding;
   const v = k === "dateText" ? dateText : k === "dateBig" ? bigDate : w[k];
   if (v) el.textContent = v;
+  else if (el.dataset.empty === "hide") (el.closest(".event-row") || el.closest("p") || el).style.display = "none";
 });
 
 /* Loader */
@@ -148,7 +151,7 @@ if (validDate) {
     const f = d => d.toISOString().replace(/[-:]|\.\d{3}/g, "");
     const end = new Date(target.getTime() + 3 * 36e5);
     const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "BEGIN:VEVENT", `DTSTART:${f(target)}`, `DTEND:${f(end)}`,
-      `SUMMARY:Wedding of ${weddingData.groom} & ${weddingData.bride}`, `LOCATION:${[w.venue, w.location].filter(Boolean).join(", ")}`,
+      `SUMMARY:${w.event || "Wedding"} of ${weddingData.groom} & ${weddingData.bride}`, `LOCATION:${[w.venue, w.location].filter(Boolean).join(", ")}`,
       "END:VEVENT", "END:VCALENDAR"].join("\r\n");
     const a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar" }));
