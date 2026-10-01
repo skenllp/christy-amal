@@ -64,8 +64,10 @@ setTimeout(hideLoader, 4000);
 /* Music */
 const music = $("#bgMusic"), musicBtn = $("#musicToggle");
 function setPlaying(p) { musicBtn.classList.toggle("playing", p); }
+function playMusic() { music.play().then(() => setPlaying(true)).catch(() => {}); }
+playMusic();
 musicBtn.addEventListener("click", () => {
-  if (music.paused) { music.play().then(() => setPlaying(true)).catch(() => {}); }
+  if (music.paused) { playMusic(); }
   else { music.pause(); setPlaying(false); }
 });
 
@@ -73,7 +75,7 @@ musicBtn.addEventListener("click", () => {
 const opening = $("#opening");
 $("#openBtn").addEventListener("click", () => {
   opening.classList.add("go");
-  music.play().then(() => setPlaying(true)).catch(() => {});
+  playMusic();
   setTimeout(() => {
     document.body.classList.remove("locked");
     window.scrollTo(0, 0);
