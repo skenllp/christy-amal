@@ -92,6 +92,7 @@ main>section:not(.hero){position:relative;z-index:1}
 .amp+.person-card{margin-top:1rem}
 .frame{width:120px;height:120px;margin:0 auto 1.2rem;border-radius:50%;overflow:hidden;border:1px solid var(--gold);padding:4px;background:var(--cream)}
 .frame img{width:100%;height:100%;object-fit:cover;object-position:center 20%;border-radius:50%}
+.frame img.amal{object-position:center 15%}
 .frame img.christy{object-position:center 22%}
 .person-card .names{font-size:2.4rem;margin:.3rem 0 .4rem}
 .family-section .label{margin-top:1.2rem}
